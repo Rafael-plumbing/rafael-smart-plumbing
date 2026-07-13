@@ -13,151 +13,74 @@
             --red: #e02424;
             --red-hover: #b81d1d;
             --white: #ffffff;
-            --gray: #f3f4f6;
             --whatsapp: #25D366;
-            --gold: #ffc107;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--dark-blue); color: var(--white); line-height: 1.6; text-align: center; }
-        
         .top-bar { background-color: var(--red); color: white; padding: 8px 20px; font-weight: bold; font-size: 0.95rem; }
-        
         .hero-section { background: linear-gradient(rgba(11, 21, 40, 0.85), rgba(11, 21, 40, 0.95)), url('logo.jpg') no-repeat center center; background-size: cover; padding: 50px 20px; display: flex; flex-direction: column; align-items: center; border-bottom: 4px solid var(--red); }
         .main-logo { max-width: 100%; width: 400px; height: auto; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        
         .hero-section h1 { font-size: 2.3rem; font-weight: 800; margin-bottom: 10px; color: var(--white); }
         .hero-section h2 { font-size: 1.6rem; font-weight: 600; color: var(--red); margin-bottom: 20px; }
         .hero-section p { font-size: 1.1rem; max-width: 600px; margin-bottom: 25px; color: #cbd5e1; }
-        
         .features-list { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 30px; text-align: right; width: fit-content; margin-left: auto; margin-right: auto; }
         .feature-item { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600; }
         .feature-item i { color: var(--red); font-size: 1.2rem; }
-        
         .container { max-width: 650px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; }
-        
         .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; margin: 25px 0; }
         .service-badge { background-color: var(--white); color: var(--dark-blue); padding: 15px; border-radius: 50px; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         .service-badge i { color: var(--red); }
-        
         .info-card { background-color: var(--light-blue); padding: 20px; border-radius: 15px; width: 100%; border-right: 5px solid var(--red); margin-bottom: 25px; text-align: center; }
         .info-card h3 { font-size: 1.3rem; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--red); }
-        
         .cta-box { display: flex; flex-direction: column; gap: 15px; width: 100%; margin: 25px 0; }
         .btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px; border-radius: 50px; font-size: 1.3rem; font-weight: bold; text-decoration: none; color: white; transition: transform 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); width: 100%; }
         .btn:hover { transform: scale(1.02); }
         .btn-whatsapp { background-color: var(--whatsapp); }
         .btn-phone { background-color: var(--red); }
         .btn-phone:hover { background-color: var(--red-hover); }
-
-        .reviews-card { background-color: var(--light-blue); padding: 30px 20px; border-radius: 15px; width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 30px; text-align: right; }
-        .reviews-card h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; justify-content: center; }
-        
-        .review-form { background-color: var(--dark-blue); padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #2e3e5a; }
-        .review-form h4 { text-align: center; margin-bottom: 12px; font-size: 1.1rem; color: #cbd5e1; }
-        .form-group { margin-bottom: 12px; }
-        .form-control { width: 100%; padding: 10px 15px; border-radius: 8px; border: 1px solid #2e3e5a; background-color: var(--light-blue); color: white; font-size: 1rem; text-align: right; }
-        .form-control:focus { outline: none; border-color: var(--red); }
-        
-        .rating-select { display: flex; justify-content: center; gap: 10px; margin: 15px 0; font-size: 1.8rem; cursor: pointer; flex-direction: row-reverse; }
-        .rating-select i { color: #cbd5e1; transition: color 0.2s; }
-        .rating-select i.active, .rating-select i:hover, .rating-select i:hover ~ i { color: var(--gold); }
-        
-        .btn-submit { background-color: var(--red); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .btn-submit:hover { background-color: var(--red-hover); }
-
-        .review-item { border-bottom: 1px solid #2e3e5a; padding: 15px 0; animation: fadeIn 0.5s ease; }
-        .review-item:last-child { border-bottom: none; }
-        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-        .reviewer-name { font-weight: bold; font-size: 1.05rem; color: #fff; }
-        .stars { color: var(--gold); font-size: 1.1rem; }
-        .review-text { color: #cbd5e1; font-size: 1rem; }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.9rem; width: 100%; border-top: 1px solid #1e293b; }
+        .btn-reviews { background-color: var(--light-blue); border: 2px solid var(--red); }
+        footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.9rem; width: 100%; border-top: 1px solid #1e293b; margin-top: 20px; }
     </style>
 </head>
 <body>
-
     <div class="top-bar">🚨 שירות חירום SOS 24/7</div>
-
     <div class="hero-section">
         <img src="logo.jpg" alt="רפאל אינסטלציה חכמה" class="main-logo">
         <h1>רפאל אינסטלציה חכמה</h1>
         <h2>הדור החדש של שירותי אינסטלציה</h2>
         <p>התמחות במגוון שירותי אינסטלציה ללקוחות במגזר הפרטי והציבורי. זמינות מיידית ומענה מהיר לכל תקלה!</p>
-        
         <div class="features-list">
             <div class="feature-item"><i class="fas fa-check"></i> נסיון, מהירות ואמינות ללא פשרות</div>
             <div class="feature-item"><i class="fas fa-check"></i> פתרונות מתקדמים ומחיר נוח לכל כיס</div>
             <div class="feature-item"><i class="fas fa-check"></i> התחייבות ל-100% שביעות רצון הלקוח</div>
         </div>
     </div>
-
     <div class="container">
-        
         <div class="services-grid">
             <div class="service-badge"><i class="fas fa-water"></i> פתיחת סתימות</div>
             <div class="service-badge"><i class="fas fa-search-location"></i> איתור נזילות</div>
             <div class="service-badge"><i class="fas fa-broom"></i> ניקוי שורשים בביוב</div>
             <div class="service-badge"><i class="fas fa-wrench"></i> כלים סניטריים</div>
         </div>
-
         <div class="info-card">
             <h3><i class="fas fa-map-marker-alt"></i> אזורי פעילות ושירות</h3>
             <p><strong>מרכז והסביבה</strong> – מגיעים אליכם במהירות לכל קריאה!</p>
         </div>
-
         <div class="cta-box">
-            <!-- קישור וואטסאפ מתוקן ב-100% -->
             <a href="https://whatsapp.com." class="btn btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> לחצו למעבר מהיר ל-WhatsApp
             </a>
             <a href="tel:0528888879" class="btn btn-phone">
                 <i class="fas fa-phone-alt"></i> חייגו עכשיו: 052-8888879
             </a>
+            <!-- כפתור מעבר לדף הביקורות החדש -->
+            <a href="reviews.html" class="btn btn-reviews">
+                <i class="fas fa-star"></i> לצפייה וכתיבת ביקורות לקוחות
+            </a>
         </div>
-
-        <div class="reviews-card">
-            <h2><i class="fas fa-star"></i> חוות דעת וביקורות לקוחות</h2>
-            
-            <div class="review-form">
-                <h4>הוסיפו חוות דעת על השירות שקיבלתם:</h4>
-                <div class="form-group">
-                    <input type="text" id="reviewerName" class="form-control" placeholder="השם שלכם">
-                </div>
-                <div class="form-group">
-                    <textarea id="reviewText" class="form-control" rows="3" placeholder="תיאור המקרה והשירות שקיבלתם..."></textarea>
-                </div>
-                
-                <!-- בחירת כוכבים מ-1 עד 5 קלה ונוחה -->
-                <div class="rating-select" id="ratingStars">
-                    <i class="fas fa-star" data-value="5"></i>
-                    <i class="fas fa-star" data-value="4"></i>
-                    <i class="fas fa-star" data-value="3"></i>
-                    <i class="fas fa-star" data-value="2"></i>
-                    <i class="fas fa-star" data-value="1"></i>
-                </div>
-                
-                <button type="button" class="btn-submit" onclick="addReview()">שלחו ביקורת באתר</button>
-            </div>
-
-            <!-- האזור ריק לחלוטין מביקורות פיקטיביות, רק לקוחות אמיתיים ייכנסו לכאן -->
-            <div id="reviewsList"></div>
-        </div>
-
         <footer>
             כל הזכויות שמורות &copy; רפאל אינסטלציה חכמה | טלפון לפניות: 052-8888879
         </footer>
-
     </div>
-
-    <script>
-        let selectedRating = 5;
-        const starElements = document.querySelectorAll('#ratingStars i');
-        
-        starElements.forEach(star => {
-            star.addEventListener('click', () => {
+</body>
+</html>
