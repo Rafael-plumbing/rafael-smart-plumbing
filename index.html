@@ -10,77 +10,130 @@
         :root {
             --dark-blue: #0b1528;
             --light-blue: #1c2e4a;
+            --blue-accent: #0056b3;
             --red: #e02424;
             --red-hover: #b81d1d;
             --white: #ffffff;
             --whatsapp: #25D366;
+            --gold: #ffc107;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--dark-blue); color: var(--white); line-height: 1.6; text-align: center; }
-        .top-bar { background-color: var(--red); color: white; padding: 8px 20px; font-weight: bold; font-size: 0.95rem; }
-        .hero-section { background: linear-gradient(rgba(11, 21, 40, 0.85), rgba(11, 21, 40, 0.95)), url('logo.jpg') no-repeat center center; background-size: cover; padding: 50px 20px; display: flex; flex-direction: column; align-items: center; border-bottom: 4px solid var(--red); }
+        
+        /* שורת סטטוס כחולה חדשה */
+        .top-bar-blue { background-color: #004494; color: white; padding: 10px 20px; font-weight: bold; font-size: 1.05rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        
+        .hero-section { background: linear-gradient(rgba(11, 21, 40, 0.85), rgba(11, 21, 40, 0.95)), url('logo.jpg') no-repeat center center; background-size: cover; padding: 50px 20px; display: flex; flex-direction: column; align-items: center; border-bottom: 4px solid #004494; }
         .main-logo { max-width: 100%; width: 400px; height: auto; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        
         .hero-section h1 { font-size: 2.3rem; font-weight: 800; margin-bottom: 10px; color: var(--white); }
-        .hero-section h2 { font-size: 1.6rem; font-weight: 600; color: var(--red); margin-bottom: 20px; }
+        .hero-section h2 { font-size: 1.6rem; font-weight: 600; color: #3b82f6; margin-bottom: 20px; }
         .hero-section p { font-size: 1.1rem; max-width: 600px; margin-bottom: 25px; color: #cbd5e1; }
+        
         .features-list { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 30px; text-align: right; width: fit-content; margin-left: auto; margin-right: auto; }
         .feature-item { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600; }
-        .feature-item i { color: var(--red); font-size: 1.2rem; }
-        .container { max-width: 650px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; }
-        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; margin: 25px 0; }
+        .feature-item i { color: #3b82f6; font-size: 1.2rem; }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; width: 100%; max-width: 650px; margin: 25px 0; }
         .service-badge { background-color: var(--white); color: var(--dark-blue); padding: 15px; border-radius: 50px; font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .service-badge i { color: var(--red); }
-        .info-card { background-color: var(--light-blue); padding: 20px; border-radius: 15px; width: 100%; border-right: 5px solid var(--red); margin-bottom: 25px; text-align: center; }
-        .info-card h3 { font-size: 1.3rem; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--red); }
-        .cta-box { display: flex; flex-direction: column; gap: 15px; width: 100%; margin: 25px 0; }
+        .service-badge i { color: #004494; }
+        
+        .info-card { background-color: var(--light-blue); padding: 20px; border-radius: 15px; width: 100%; max-width: 650px; border-right: 5px solid #3b82f6; margin-bottom: 25px; text-align: center; }
+        .info-card h3 { font-size: 1.3rem; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #3b82f6; }
+        
+        .cta-box { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 650px; margin: 25px 0; }
         .btn { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px; border-radius: 50px; font-size: 1.3rem; font-weight: bold; text-decoration: none; color: white; transition: transform 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); width: 100%; }
         .btn:hover { transform: scale(1.02); }
         .btn-whatsapp { background-color: var(--whatsapp); }
-        .btn-phone { background-color: var(--red); }
-        .btn-phone:hover { background-color: var(--red-hover); }
-        .btn-reviews { background-color: var(--light-blue); border: 2px solid var(--red); }
+        .btn-phone { background-color: #004494; }
+
+        /* אזור הביקורות החדש בסגנון גוגל הצידי ששלחת */
+        .google-reviews-section { background-color: var(--white); color: #202124; padding: 30px 20px; border-radius: 12px; width: 100%; max-width: 850px; margin: 30px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); text-align: right; }
+        .google-layout { display: flex; gap: 30px; flex-wrap: wrap; }
+        
+        /* טור ימין - סיכום וכפתור כתיבה */
+        .google-summary-box { flex: 1; min-width: 220px; border-left: 1px solid #dadce0; padding-left: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; }
+        .g-logo-wrapper { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .g-logo-wrapper img { width: 24px; height: 24px; }
+        .g-business-name { font-weight: bold; font-size: 1.1rem; color: #202124; }
+        .g-stars-main { color: var(--gold); font-size: 1.4rem; margin: 5px 0; }
+        .g-count-text { color: #5f6368; font-size: 0.95rem; margin-bottom: 15px; }
+        .btn-g-write { background-color: var(--white); color: #1a73e8; border: 1px solid #dadce0; padding: 10px 20px; border-radius: 4px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: background 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .btn-g-write:hover { background-color: #f8f9fa; border-color: #c3c6ca; }
+
+        /* טור שמאל - רשימת חוות הדעת */
+        .google-list-box { flex: 2; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
+        .g-review-item { display: flex; gap: 15px; border-bottom: 1px solid #f1f3f4; padding-bottom: 15px; }
+        .g-review-item:last-child { border-bottom: none; }
+        .g-avatar { width: 40px; height: 40px; border-radius: 50%; background-color: #1a73e8; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; flex-shrink: 0; }
+        .g-content { flex: 1; }
+        .g-name-line { font-weight: bold; font-size: 0.95rem; color: #202124; margin-bottom: 2px; }
+        .g-stars-row { color: var(--gold); font-size: 0.9rem; margin-bottom: 6px; }
+        .g-text { color: #3c4043; font-size: 0.95rem; line-height: 1.5; }
+
+        /* חלון פופ-אפ מודרני לכתיבת ביקורת */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+        .modal-box { background: white; color: #202124; padding: 25px; border-radius: 8px; width: 100%; max-width: 450px; text-align: right; box-shadow: 0 4px 20px rgba(0,0,0,0.25); position: relative; }
+        .modal-box h3 { margin-bottom: 15px; font-size: 1.25rem; color: #202124; text-align: center; }
+        .close-modal { position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #5f6368; }
+        .form-input { width: 100%; padding: 12px; border: 1px solid #dadce0; border-radius: 4px; background: #fff; color: #202124; font-size: 1rem; margin-bottom: 12px; text-align: right; }
+        .form-input:focus { outline: none; border-color: #1a73e8; }
+        .modal-stars { display: flex; justify-content: center; gap: 8px; margin: 15px 0; font-size: 2.2rem; cursor: pointer; flex-direction: row-reverse; }
+        .modal-stars i { color: #dadce0; }
+        .modal-stars i.active, .modal-stars i:hover, .modal-stars i:hover ~ i { color: var(--gold); }
+        .btn-modal-submit { background-color: #1a73e8; color: white; border: none; padding: 12px; border-radius: 4px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1.05rem; }
+        .btn-modal-submit:hover { background-color: #1557b0; }
+
         footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.9rem; width: 100%; border-top: 1px solid #1e293b; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="top-bar">🚨 שירות חירום SOS 24/7</div>
+
+    <!-- שורת סטטוס כחולה מעודכנת -->
+    <div class="top-bar-blue">התמחיות לשירות הכי טוב שיש</div>
+
     <div class="hero-section">
         <img src="logo.jpg" alt="רפאל אינסטלציה חכמה" class="main-logo">
         <h1>רפאל אינסטלציה חכמה</h1>
         <h2>הדור החדש של שירותי אינסטלציה</h2>
         <p>התמחות במגוון שירותי אינסטלציה ללקוחות במגזר הפרטי והציבורי. זמינות מיידית ומענה מהיר לכל תקלה!</p>
+        
         <div class="features-list">
             <div class="feature-item"><i class="fas fa-check"></i> נסיון, מהירות ואמינות ללא פשרות</div>
             <div class="feature-item"><i class="fas fa-check"></i> פתרונות מתקדמים ומחיר נוח לכל כיס</div>
             <div class="feature-item"><i class="fas fa-check"></i> התחייבות ל-100% שביעות רצון הלקוח</div>
         </div>
     </div>
+
     <div class="container">
+        
         <div class="services-grid">
             <div class="service-badge"><i class="fas fa-water"></i> פתיחת סתימות</div>
             <div class="service-badge"><i class="fas fa-search-location"></i> איתור נזילות</div>
             <div class="service-badge"><i class="fas fa-broom"></i> ניקוי שורשים בביוב</div>
-            <div class="service-badge"><i class="fas fa-wrench"></i> כלים סניטריים</div>
+            <!-- שירות מעודכן לפי בקשתך -->
+            <div class="service-badge"><i class="fas fa-tools"></i> החלפת צינורות</div>
         </div>
+
         <div class="info-card">
             <h3><i class="fas fa-map-marker-alt"></i> אזורי פעילות ושירות</h3>
             <p><strong>מרכז והסביבה</strong> – מגיעים אליכם במהירות לכל קריאה!</p>
         </div>
+
         <div class="cta-box">
-            <a href="https://whatsapp.com." class="btn btn-whatsapp" target="_blank">
+            <!-- קישור וואטסאפ רשמי ומתוקן קומפלט -->
+            <a href="https://wa.me" class="btn btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> לחצו למעבר מהיר ל-WhatsApp
             </a>
             <a href="tel:0528888879" class="btn btn-phone">
                 <i class="fas fa-phone-alt"></i> חייגו עכשיו: 052-8888879
             </a>
-            <!-- כפתור מעבר לדף הביקורות החדש -->
-            <a href="reviews.html" class="btn btn-reviews">
-                <i class="fas fa-star"></i> לצפייה וכתיבת ביקורות לקוחות
-            </a>
         </div>
-        <footer>
-            כל הזכויות שמורות &copy; רפאל אינסטלציה חכמה | טלפון לפניות: 052-8888879
-        </footer>
-    </div>
-</body>
-</html>
+
+        <!-- קוביית ביקורות בעיצוב גוגל הרשמי ששלחת -->
+        <div class="google-reviews-section">
+            <div class="google-layout">
+                
+                <!-- צד ימין: סיכום וכפתור פתיחת כתיבה -->
