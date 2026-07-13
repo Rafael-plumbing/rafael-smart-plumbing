@@ -46,16 +46,14 @@
         .btn-whatsapp { background-color: var(--whatsapp); }
         .btn-phone { background-color: #004494; }
 
-        /* קוביית ביקורות גוגל המתוקנת */
+        /* קוביית ביקורות מעוצבת */
         .google-reviews-section { background-color: var(--white); color: #202124; padding: 25px; border-radius: 12px; width: 100%; max-width: 650px; margin: 30px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
         .g-logo-wrapper { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 5px; }
         .g-logo-wrapper i { color: #4285F4; font-size: 1.4rem; }
         .g-business-name { font-weight: bold; font-size: 1.2rem; color: #202124; }
         .g-stars-main { color: var(--gold); font-size: 1.6rem; margin: 5px 0; }
         .g-count-text { color: #5f6368; font-size: 1rem; margin-bottom: 10px; font-weight: bold; }
-        
-        /* עיצוב כפתור כתיבת ביקורת */
-        .btn-g-write { background-color: var(--white); color: #1a73e8; border: 1px solid #dadce0; padding: 10px 25px; border-radius: 50px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: inline-block; }
+        .btn-g-write { background-color: var(--white); color: #1a73e8; border: 1px solid #dadce0; padding: 10px 25px; border-radius: 50px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
         .btn-g-write:hover { background-color: #f8f9fa; border-color: #c3c6ca; }
 
         .google-list-box { width: 100%; display: flex; flex-direction: column; gap: 15px; text-align: right; margin-top: 15px; }
@@ -66,7 +64,7 @@
         .g-stars-row { color: var(--gold); font-size: 0.9rem; margin-bottom: 6px; }
         .g-text { color: #3c4043; font-size: 0.95rem; line-height: 1.5; }
 
-        /* חלון פופ-אפ לכתיבת ביקורת */
+        /* פופ-אפ */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .modal-box { background: white; color: #202124; padding: 25px; border-radius: 8px; width: 100%; max-width: 450px; text-align: right; box-shadow: 0 4px 20px rgba(0,0,0,0.25); position: relative; }
         .modal-box h3 { margin-bottom: 15px; font-size: 1.25rem; color: #202124; text-align: center; }
@@ -93,7 +91,7 @@
         <div class="features-list">
             <div class="feature-item"><i class="fas fa-check"></i> נסיון, מהירות ואמינות ללא פשרות</div>
             <div class="feature-item"><i class="fas fa-check"></i> פתרונות מתקדמים ומחיר נוח לכל כיס</div>
-            <!-- השורה שונתה סופית לטקסט שרצית -->
+            <!-- שונה סופית לבקשתך -->
             <div class="feature-item"><i class="fas fa-check"></i> התחייבות לשירות הטוב ביותר</div>
         </div>
     </div>
@@ -121,7 +119,7 @@
             </a>
         </div>
 
-        <!-- קוביית ביקורות גוגל המתוקנת לחלוטין -->
+        <!-- קוביית ביקורות מתוקנת עם ה-ID של הרשימה בפנים -->
         <div class="google-reviews-section">
             <div class="g-logo-wrapper">
                 <i class="fab fa-google"></i>
@@ -133,6 +131,7 @@
             <div class="g-count-text" id="gCountText">0 Google ביקורות</div>
             <button class="btn-g-write" onclick="openReviewModal()">כתוב ביקורת</button>
             
+            <!-- השורה הזו תוקנה ומציגה את רשימת הביקורות חלק -->
             <div class="google-list-box" id="googleReviewsList"></div>
         </div>
 
@@ -142,3 +141,4 @@
 
     </div>
 
+    <!-- חלון פופ-אפ להוספת ביקורת -->
