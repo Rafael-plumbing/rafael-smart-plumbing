@@ -20,9 +20,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--dark-blue); color: var(--white); line-height: 1.6; text-align: center; }
         
-        /* שורת סטטוס כחולה חדשה */
-        .top-bar-blue { background-color: #004494; color: white; padding: 10px 20px; font-weight: bold; font-size: 1.05rem; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        
         .hero-section { background: linear-gradient(rgba(11, 21, 40, 0.85), rgba(11, 21, 40, 0.95)), url('logo.jpg') no-repeat center center; background-size: cover; padding: 50px 20px; display: flex; flex-direction: column; align-items: center; border-bottom: 4px solid #004494; }
         .main-logo { max-width: 100%; width: 400px; height: auto; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         
@@ -49,11 +46,10 @@
         .btn-whatsapp { background-color: var(--whatsapp); }
         .btn-phone { background-color: #004494; }
 
-        /* אזור הביקורות החדש בסגנון גוגל הצידי ששלחת */
+        /* אזור הביקורות בעיצוב גוגל הרשמי */
         .google-reviews-section { background-color: var(--white); color: #202124; padding: 30px 20px; border-radius: 12px; width: 100%; max-width: 850px; margin: 30px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); text-align: right; }
         .google-layout { display: flex; gap: 30px; flex-wrap: wrap; }
         
-        /* טור ימין - סיכום וכפתור כתיבה */
         .google-summary-box { flex: 1; min-width: 220px; border-left: 1px solid #dadce0; padding-left: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; }
         .g-logo-wrapper { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
         .g-logo-wrapper img { width: 24px; height: 24px; }
@@ -63,9 +59,8 @@
         .btn-g-write { background-color: var(--white); color: #1a73e8; border: 1px solid #dadce0; padding: 10px 20px; border-radius: 4px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: background 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
         .btn-g-write:hover { background-color: #f8f9fa; border-color: #c3c6ca; }
 
-        /* טור שמאל - רשימת חוות הדעת */
         .google-list-box { flex: 2; min-width: 300px; display: flex; flex-direction: column; gap: 20px; }
-        .g-review-item { display: flex; gap: 15px; border-bottom: 1px solid #f1f3f4; padding-bottom: 15px; }
+        .g-review-item { display: flex; gap: 15px; border-bottom: 1px solid #f1f3f4; padding-bottom: 15px; text-align: right; }
         .g-review-item:last-child { border-bottom: none; }
         .g-avatar { width: 40px; height: 40px; border-radius: 50%; background-color: #1a73e8; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; flex-shrink: 0; }
         .g-content { flex: 1; }
@@ -73,7 +68,7 @@
         .g-stars-row { color: var(--gold); font-size: 0.9rem; margin-bottom: 6px; }
         .g-text { color: #3c4043; font-size: 0.95rem; line-height: 1.5; }
 
-        /* חלון פופ-אפ מודרני לכתיבת ביקורת */
+        /* פופ-אפ לכתיבת ביקורת */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .modal-box { background: white; color: #202124; padding: 25px; border-radius: 8px; width: 100%; max-width: 450px; text-align: right; box-shadow: 0 4px 20px rgba(0,0,0,0.25); position: relative; }
         .modal-box h3 { margin-bottom: 15px; font-size: 1.25rem; color: #202124; text-align: center; }
@@ -90,9 +85,6 @@
     </style>
 </head>
 <body>
-
-    <!-- שורת סטטוס כחולה מעודכנת -->
-    <div class="top-bar-blue">התמחיות לשירות הכי טוב שיש</div>
 
     <div class="hero-section">
         <img src="logo.jpg" alt="רפאל אינסטלציה חכמה" class="main-logo">
@@ -113,7 +105,6 @@
             <div class="service-badge"><i class="fas fa-water"></i> פתיחת סתימות</div>
             <div class="service-badge"><i class="fas fa-search-location"></i> איתור נזילות</div>
             <div class="service-badge"><i class="fas fa-broom"></i> ניקוי שורשים בביוב</div>
-            <!-- שירות מעודכן לפי בקשתך -->
             <div class="service-badge"><i class="fas fa-tools"></i> החלפת צינורות</div>
         </div>
 
@@ -123,7 +114,6 @@
         </div>
 
         <div class="cta-box">
-            <!-- קישור וואטסאפ רשמי ומתוקן קומפלט -->
             <a href="https://wa.me" class="btn btn-whatsapp" target="_blank">
                 <i class="fab fa-whatsapp"></i> לחצו למעבר מהיר ל-WhatsApp
             </a>
@@ -132,8 +122,15 @@
             </a>
         </div>
 
-        <!-- קוביית ביקורות בעיצוב גוגל הרשמי ששלחת -->
+        <!-- קוביית ביקורות גוגל המתוקנת -->
         <div class="google-reviews-section">
             <div class="google-layout">
                 
-                <!-- צד ימין: סיכום וכפתור פתיחת כתיבה -->
+                <!-- צד ימין: סיכום -->
+                <div class="google-summary-box">
+                    <div class="g-logo-wrapper">
+                        <img src="https://wikimedia.org" alt="Google">
+                        <span class="g-business-name">רפאל שירותי אינסטלציה</span>
+                    </div>
+                    <div class="g-stars-main" id="gMainStars"></div>
+                    <div class="g-count-text" id="gCountText">Google ביקורות</div>
