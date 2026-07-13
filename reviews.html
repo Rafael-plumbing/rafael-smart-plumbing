@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חוות דעת וביקורות | רפאל אינסטלציה חכמה</title>
+    <link href="https://cloudflare.com" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #0b1528;
+            --light-blue: #1c2e4a;
+            --red: #e02424;
+            --red-hover: #b81d1d;
+            --white: #ffffff;
+            --gold: #ffc107;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--dark-blue); color: var(--white); line-height: 1.6; text-align: center; padding: 20px 0; }
+        .container { max-width: 600px; margin: 0 auto; padding: 0 20px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--white); text-decoration: none; font-weight: bold; margin-bottom: 20px; background-color: var(--light-blue); padding: 10px 20px; border-radius: 50px; border: 1px solid #2e3e5a; }
+        .stats-card { background-color: var(--light-blue); padding: 20px; border-radius: 15px; margin-bottom: 25px; border-bottom: 4px solid var(--red); }
+        .stats-card h1 { font-size: 1.6rem; margin-bottom: 10px; }
+        .rating-number { font-size: 3rem; font-weight: 800; color: var(--gold); }
+        .reviews-card { background-color: var(--light-blue); padding: 25px; border-radius: 15px; text-align: right; }
+        .review-form { background-color: var(--dark-blue); padding: 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #2e3e5a; }
+        .review-form h4 { text-align: center; margin-bottom: 12px; font-size: 1.1rem; color: #cbd5e1; }
+        .form-group { margin-bottom: 12px; }
+        .form-control { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #2e3e5a; background-color: var(--light-blue); color: white; font-size: 1rem; text-align: right; }
+        .rating-select { display: flex; justify-content: center; gap: 10px; margin: 15px 0; font-size: 2rem; cursor: pointer; flex-direction: row-reverse; }
+        .rating-select i { color: #cbd5e1; }
+        .rating-select i.active, .rating-select i:hover, .rating-select i:hover ~ i { color: var(--gold); }
+        .btn-submit { background-color: var(--red); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1.1rem; }
+        .review-item { border-bottom: 1px solid #2e3e5a; padding: 15px 0; }
+        .review-item:last-child { border-bottom: none; }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .reviewer-name { font-weight: bold; }
+        .stars { color: var(--gold); }
+        .review-text { color: #cbd5e1; }
+        .no-reviews { text-align: center; color: #cbd5e1; padding: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> חזרה לדף הבית</a>
+        <div class="stats-card">
+            <h1>דירוג העסק וממוצע חוות דעת</h1>
+            <div class="rating-number" id="avgRating">0.0</div>
+            <div class="stars" id="headerStars" style="font-size: 1.5rem; margin: 5px 0;"></div>
+            <div id="totalCount" style="color: #cbd5e1; font-weight: bold;">(0 חוות דעת עודכנו)</div>
+        </div>
+        <div class="reviews-card">
+            <div class="review-form">
+                <h4>הוסיפו חוות דעת על השירות שקיבלתם:</h4>
+                <div class="form-group"><input type="text" id="reviewerName" class="form-control" placeholder="השם שלכם"></div>
+                <div class="form-group"><textarea id="reviewText" class="form-control" rows="3" placeholder="תיאור המקרה והשירות..."></textarea></div>
+                <div class="rating-select" id="ratingStars">
+                    <i class="fas fa-star" data-value="5"></i><i class="fas fa-star" data-value="4"></i><i class="fas fa-star" data-value="3"></i><i class="fas fa-star" data-value="2"></i><i class="fas fa-star" data-value="1"></i>
+                </div>
+                <button type="button" class="btn-submit" onclick="addReview()">שלחו ביקורת באתר</button>
+            </div>
+            <div id="reviewsList"><div class="no-reviews" id="noReviewsMsg">עדיין אין ביקורות בדף זה. תהיו הראשונים לכתוב!</div></div>
+        </div>
+    </div>
+    <script>
+        let selectedRating = 5;
+        let reviewsData = [];
+        const starElements = document.querySelectorAll('#ratingStars i');
+        
+        starElements.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = parseInt(star.getAttribute('data-value'));
+                updateFormStars();
+            });
+        });
+
+        function updateFormStars() {
+            starElements.forEach(s => {
+                const val = parseInt(s.getAttribute('data-value'));
+                s.className = val <= selectedRating ? 'fas fa-star active' : 'far fa-star';
+            });
+        }
+        updateFormStars();
+
+        function updateStats() {
+            const total = reviewsData.length;
+            const avgRatingEl = document.getElementById('avgRating');
+            const totalCountEl = document.getElementById('totalCount');
+            const headerStarsEl = document.getElementById('headerStars');
+            const noReviewsMsg = document.getElementById('noReviewsMsg');
+
+            if (total === 0) {
+                avgRatingEl.innerText = "0.0";
+                totalCountEl.innerText = "(0 חוות דעת עודכנו)";
+                headerStarsEl.innerHTML = "";
+                if(noReviewsMsg) noReviewsMsg.style.display = 'block';
+                return;
+            }
+
+            if(noReviewsMsg) noReviewsMsg.style.display = 'none';
+            const sum = reviewsData.reduce((acc, r) => acc + r.rating, 0);
+            const avg = (sum / total).toFixed(1);
+            
+            avgRatingEl.innerText = avg;
+            totalCountEl.innerText = `(${total} חוות דעת עודכנו)`;
+            
+            let starHtml = '';
+            const roundedAvg = Math.round(avg);
+            for(let i=1; i<=5; i++) {
+                starHtml += i <= roundedAvg ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+            }
+            headerStarsEl.innerHTML = starHtml;
+        }
+
+        function addReview() {
+            const name = document.getElementById('reviewerName').value.trim();
+            const text = document.getElementById('reviewText').value.trim();
+            
+            if(!name || !text) {
+                alert('בבקשה מלאו את השם שלכם ואת תיאור המקרה בביקורת.');
+                return;
+            }
+            
+            reviewsData.unshift({ name: name, text: text, rating: selectedRating });
+            
+            let starHtml = '';
+            for(let i=0; i<selectedRating; i++) { starHtml += '<i class="fas fa-star"></i>'; }
+            for(let i=selectedRating; i<5; i++) { starHtml += '<i class="far fa-star"></i>'; }
+            
+            const reviewContainer = document.getElementById('reviewsList');
+            const newItem = document.createElement('div');
+            newItem.className = 'review-item';
+            newItem.innerHTML = `
+                <div class="review-header">
+                    <span class="reviewer-name">${name}</span>
+                    <div class="stars">${starHtml}</div>
+                </div>
+                <p class="review-text">${text}</p>
+            `;
+            
+            reviewContainer.insertBefore(newItem, reviewContainer.firstChild);
+            
+            document.getElementById('reviewerName').value = '';
+            document.getElementById('reviewText').value = '';
+            selectedRating = 5;
+            updateFormStars();
+            updateStats();
+            
+            alert('תודה! הביקורת שלך נוספה בהצלחה.');
+        }
+    </script>
+</body>
+</html>
