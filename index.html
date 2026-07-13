@@ -11,7 +11,6 @@
             --dark-blue: #0b1528;
             --light-blue: #1c2e4a;
             --blue-accent: #1a73e8;
-            --red: #e02424;
             --white: #ffffff;
             --whatsapp: #25D366;
             --gold: #ffc107;
@@ -23,7 +22,6 @@
         .main-logo { max-width: 100%; width: 400px; height: auto; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         
         .hero-section h1 { font-size: 2.3rem; font-weight: 800; margin-bottom: 10px; color: var(--white); }
-        .hero-section h2 { font-size: 1.6rem; font-weight: 600; color: #3b82f6; margin-bottom: 20px; }
         
         .features-list { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 30px; text-align: right; width: fit-content; margin-left: auto; margin-right: auto; }
         .feature-item { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600; }
@@ -42,25 +40,24 @@
         .btn-whatsapp { background-color: var(--whatsapp); }
         .btn-phone { background-color: #004494; }
 
-        /* קוביית ביקורות מעוצבת וגלויה בלי פופאפים */
+        /* קוביית ביקורות גוגל */
         .google-reviews-section { background-color: var(--white); color: #202124; padding: 25px; border-radius: 12px; width: 100%; max-width: 650px; margin: 30px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.2); text-align: center; }
         .g-logo-wrapper { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 5px; font-weight: bold; font-size: 1.2rem; }
         .g-logo-wrapper i { color: #4285F4; }
-        .g-stars-main { color: var(--gold); font-size: 1.6rem; margin: 5px 0; }
+        .g-stars-main { color: var(--gold); font-size: 1.6rem; margin: 5px 0; display: block; }
         .g-count-text { color: #5f6368; font-size: 1rem; margin-bottom: 20px; font-weight: bold; }
         
-        /* טופס כתיבה פתוח וקבוע */
+        /* טופס כתיבה */
         .write-box-open { background: #f8f9fa; border: 1px solid #dadce0; border-radius: 8px; padding: 15px; margin-bottom: 20px; text-align: right; width: 100%; }
         .write-box-open h4 { font-size: 1rem; color: #202124; margin-bottom: 10px; text-align: center; font-weight: bold; }
-        .form-input { width: 100%; padding: 10px; border: 1px solid #dadce0; border-radius: 4px; background: #fff; color: #202124; font-size: 0.95rem; margin-bottom: 10px; text-align: right; }
-        .form-input:focus { outline: none; border-color: #1a73e8; }
+        .form-input { width: 100%; padding: 12px; border: 1px solid #dadce0; border-radius: 4px; background: #fff; color: #202124; font-size: 0.95rem; margin-bottom: 12px; text-align: right; }
         
-        .stars-selector { display: flex; justify-content: center; gap: 8px; margin: 10px 0; font-size: 2rem; cursor: pointer; flex-direction: row-reverse; }
-        .stars-selector i { color: #dadce0; }
+        /* תיקון והדגשת הכוכבים לבחירה */
+        .stars-selector { display: flex; justify-content: center; gap: 12px; margin: 15px 0; font-size: 2.2rem; cursor: pointer; flex-direction: row-reverse; min-height: 40px; }
+        .stars-selector i { color: #dadce0; transition: color 0.1s; }
         .stars-selector i.active, .stars-selector i:hover, .stars-selector i:hover ~ i { color: var(--gold) !important; }
         
-        .btn-submit-review { background-color: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 4px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1rem; margin-top: 5px; }
-        .btn-submit-review:hover { background-color: #1557b0; }
+        .btn-submit-review { background-color: #1a73e8; color: white; border: none; padding: 12px 20px; border-radius: 4px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1.1rem; margin-top: 10px; }
 
         .google-list-box { width: 100%; display: flex; flex-direction: column; gap: 15px; text-align: right; margin-top: 15px; }
         .g-review-item { display: flex; gap: 15px; border-top: 1px solid #f1f3f4; padding-top: 15px; }
@@ -110,7 +107,6 @@
             </a>
         </div>
 
-        <!-- קוביית ביקורות פתוחה ונקייה -->
         <div class="google-reviews-section">
             <div class="g-logo-wrapper">
                 <i class="fab fa-google"></i>
@@ -119,13 +115,13 @@
             <div class="g-stars-main" id="gMainStars"></div>
             <div class="g-count-text" id="gCountText">0 Google ביקורות</div>
             
-            <!-- טופס גלוי קבוע - בלי כפתור לפתוח ובלי תקלות חסימה -->
             <div class="write-box-open">
                 <h4>כתיבת חוות דעת ישירות באתר:</h4>
                 <input type="text" id="gName" class="form-input" placeholder="השם שלך">
                 <textarea id="gText" class="form-input" rows="3" placeholder="שתף תיאור של המקרה והשירות..."></textarea>
                 
-                <div class="stars-selector" id="modalStars">
+                <!-- חמישה כוכבים גדולים לבחירה -->
+                <div class="stars-selector" id="ratingStarsSelector">
                     <i class="fas fa-star" data-value="5"></i>
                     <i class="fas fa-star" data-value="4"></i>
                     <i class="fas fa-star" data-value="3"></i>
@@ -154,7 +150,7 @@
             localReviews = [];
         }
         
-        const mStars = document.querySelectorAll('#modalStars i');
+        const mStars = document.querySelectorAll('#ratingStarsSelector i');
 
         mStars.forEach(star => {
             star.addEventListener('click', () => {
@@ -165,3 +161,8 @@
 
         function updateModalStars() {
             mStars.forEach(s => {
+                const val = parseInt(s.getAttribute('data-value'));
+                if(val <= currentRating) {
+                    s.className = 'fas fa-star active';
+                    s.style.color = '#ffc107';
+                } else {
